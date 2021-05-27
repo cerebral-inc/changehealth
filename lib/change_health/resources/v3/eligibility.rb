@@ -53,7 +53,7 @@ module ChangeHealth
           ]
         }
 
-        public :post_list
+        public :create
 
         # def resource_base
         #   "eligibility/v3/"

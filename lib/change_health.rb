@@ -1,4 +1,3 @@
-# order matters
 require "change_health/authentication"
 require "change_health/configuration"
 require "change_health/request"

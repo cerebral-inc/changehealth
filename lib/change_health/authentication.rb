@@ -12,13 +12,16 @@ module ChangeHealth
     end
 
     def oauth_domain
-      'sandbox.apis.changehealthcare.com'
+      if ChangeHealth.configuration.production?
+        "apis.changehealthcare.com"
+      else
+        "sandbox.apis.changehealthcare.com"
+      end
     end
 
     protected
 
     def fetch_access_token
-
       response = ::HTTParty.post(oauth_grant_url, headers: oauth_headers, body: oauth_body.to_json)
       new_token =
         if response.code == 200 && response.content_type == 'application/json'

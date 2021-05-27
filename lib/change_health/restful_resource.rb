@@ -1,7 +1,7 @@
 module ChangeHealth
   class RestfulResource < Request
 
-    def post_list(params = {})
+    def create(params = {})
       post(resource_base, params)
     end
 
@@ -22,9 +22,9 @@ module ChangeHealth
       "/medicalnetwork/#{self.class.name.demodulize.downcase}/#{self.class.parent.name.split("::").last.downcase}"
     end
 
-    # def resource_path(id)
-    #   "#{resource_base}/#{id}"
-    # end
+    def resource_path(id)
+      "#{resource_base}/#{id}"
+    end
 
     # def path_with_params(path, params)
     #   [path, '/?', params.to_query].join
