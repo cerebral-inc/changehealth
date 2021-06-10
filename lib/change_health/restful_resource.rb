@@ -5,9 +5,9 @@ module ChangeHealth
       post(resource_base, params)
     end
 
-    # def read(id)
-    #   get(resource_path(id))
-    # end
+    def read(id)
+      get(resource_path(id))
+    end
 
     def list()
       get(resource_base)
@@ -19,7 +19,7 @@ module ChangeHealth
         delete_if { |k, v| k.to_s.start_with?('page') }. # delete all previous pagination params
         merge(page_size: 1000) # set the maximum page size
 
-      first_page = list(params_with_pagination).data
+      first_page = list_with_params(params_with_pagination).data
 
       results = first_page['results']
       (first_page['count'].to_i / 1000).times do |offset|
@@ -30,10 +30,10 @@ module ChangeHealth
       results
     end
 
-    # def list_with_params(params = {})
-    #   path = path_with_params(resource_base, params)
-    #   get(path)
-    # end
+    def list_with_params(params = {})
+      path = path_with_params(resource_base, params)
+      get(path)
+    end
 
     def resource_base
       "/medicalnetwork/#{self.class.name.demodulize.downcase}/#{self.class.parent.name.split("::").last.downcase}"
