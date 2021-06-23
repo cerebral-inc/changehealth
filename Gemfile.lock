@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    change_health (0.1.0)
+    changehealth (0.1.0)
       activesupport (~> 5.2.4)
       httparty (~> 0.18)
 
@@ -68,7 +68,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
-  change_health!
+  changehealth!
   rake (~> 13.0)
   rspec (~> 3.0)
   rspec-its (~> 1.3)

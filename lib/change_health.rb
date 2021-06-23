@@ -1,11 +1,11 @@
-require "change_health/authentication"
-require "change_health/configuration"
-require "change_health/request"
-require "change_health/restful_resource"
-require "change_health/response"
-require "change_health/version"
+require "changehealth/authentication"
+require "changehealth/configuration"
+require "changehealth/request"
+require "changehealth/restful_resource"
+require "changehealth/response"
+require "changehealth/version"
 
-resources_path = File.expand_path('change_health/resources/*/*.rb', File.dirname(__FILE__))
+resources_path = File.expand_path('changehealth/resources/*/*.rb', File.dirname(__FILE__))
 Dir[resources_path].each { |f| require f[/\/lib\/(.+)\.rb$/, 1] }
 
 require 'active_support/core_ext/hash'

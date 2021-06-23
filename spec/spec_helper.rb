@@ -1,14 +1,14 @@
 require "simplecov"
 SimpleCov.start do
   add_filter "spec/"
-  add_group "Resources", "lib/change_health/resources"
+  add_group "Resources", "lib/changehealth/resources"
 end
 
 require "bundler/setup"
 require "rspec/its"
 require "webmock/rspec"
 require "byebug"
-require "change_health"
+require "changehealth"
 
 Dir["spec/support/**/*.rb"].each { |f| require f.gsub(/^spec\//, "") }
 
