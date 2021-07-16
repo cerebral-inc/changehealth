@@ -60,7 +60,7 @@ module ChangeHealth
       )
 
       if response.code == 401
-        if response.parsed_response['message'] == 'The incoming token has expired'
+        if response.parsed_response['error'] == 'access_token_expired'
           authentication.refresh_access_token!
           send_authenticated(method, url, data)
         else
