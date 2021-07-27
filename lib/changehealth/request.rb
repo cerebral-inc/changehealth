@@ -60,8 +60,10 @@ module ChangeHealth
       )
 
       if response.code == 401
-        if response.parsed_response['error'] == 'access_token_expired'
+        ChangeHealth.logger.info("ChangeHealth 401 with #{response.parsed_response&.inspect}")
+        if response.parsed_response['error'] == 'access_token_expired' && !@refresh_attempted
           authentication.refresh_access_token!
+          @refresh_attempted = true
           send_authenticated(method, url, data)
         else
           raise ::ChangeHealth::AuthError, 'The token is invalid and cannot be refreshed'
