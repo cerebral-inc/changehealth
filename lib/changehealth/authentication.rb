@@ -29,6 +29,8 @@ module ChangeHealth
         end
 
       if new_token.nil?
+        Rails.logger.info("---Viet--")
+        Rails.logger.info("---??-- #{response&.parsed_response}")
         raise ::ChangeHealth::AuthError, "There was a problem obtaining a ChangeHealth access token from: #{oauth_grant_url}"
       end
 
