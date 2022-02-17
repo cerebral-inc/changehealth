@@ -1,9 +1,3 @@
-require "simplecov"
-SimpleCov.start do
-  add_filter "spec/"
-  add_group "Resources", "lib/changehealth/resources"
-end
-
 require "bundler/setup"
 require "rspec/its"
 require "webmock/rspec"
