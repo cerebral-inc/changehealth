@@ -8,7 +8,7 @@ require "changehealth/version"
 resources_path = File.expand_path('changehealth/resources/*/*.rb', File.dirname(__FILE__))
 Dir[resources_path].each { |f| require f[/\/lib\/(.+)\.rb$/, 1] }
 
-require 'active_support/core_ext/hash'
+require 'active_support'
 
 module ChangeHealth
   # Your code goes here...

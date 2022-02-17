@@ -19,7 +19,7 @@ module ChangeHealth
     # end
 
     def resource_base
-      "/medicalnetwork/#{self.class.name.demodulize.downcase}/#{self.class.parent.name.split("::").last.downcase}"
+      "/medicalnetwork/#{self.class.name.demodulize.downcase}/#{self.class.module_parent.name.split("::").last.downcase}"
     end
 
     def resource_path(id)
