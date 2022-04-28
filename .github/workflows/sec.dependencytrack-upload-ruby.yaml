@@ -29,4 +29,3 @@ jobs:
           projectname: ${{ github.repository }}
           projectversion: ${{ github.sha }}
           autocreate: 'true'
-          
