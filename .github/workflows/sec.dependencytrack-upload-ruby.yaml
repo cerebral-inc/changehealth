@@ -14,10 +14,15 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+      - name: Ruby gem cache
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.4
+          bundler-cache: true
       - name: Install Cyclonedx-ruby from RubyGems 
-        run: sudo gem install cyclonedx-ruby 
+        run: gem install cyclonedx-ruby 
       - name: Run Cyclonedx-ruby and generate SBOMs
-        run: sudo cyclonedx-ruby -p ./ 
+        run: cyclonedx-ruby -p ./ 
 
       - name: Upload SBOM to Dependency-Track
         uses: DependencyTrack/gh-upload-sbom@v1.0.0
